@@ -19,10 +19,6 @@ function fibonacci(num) {
 }
 
 
-for (var i =1; i<= nTermos; i++) {
-    console.log(fibonacci(i));      // CHAMADA DA FUNÇÃO
-}
-
 // FUNÇÃO MDC
 function mdc(m,n) {
     var candidato = 0;
@@ -122,7 +118,7 @@ const quickSort = (arr, left, right) => {
 // FUNÇÃO SOMATÓRIO
 function somatorio(num) {
     var soma = 0;
-    for (var n of numeros) {
+    for (var n of num) {
         soma += n;
     }
 

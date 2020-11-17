@@ -52,5 +52,5 @@ app.post('/contador', function(req, res) {
 
 
 app.listen(port, function() {                                           // Indicação da porta.
-    console.log('Servidor escutando na porta http://localhost:${port}/');
+    console.log(`Servidor escutando na porta http://localhost:${port}/`);
 });
