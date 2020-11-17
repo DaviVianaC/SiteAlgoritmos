@@ -1,0 +1,10 @@
+body{
+    padding: 30px;
+    background-color: rgba(219, 241, 255, 0.651);
+}
+
+a{
+    background-color: rgb(241, 241, 241);
+    color: black;
+    font-size: 40px;
+}
