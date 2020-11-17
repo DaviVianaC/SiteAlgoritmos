@@ -1,12 +1,14 @@
 
 // FUNÇÃO CONTADOR
+// 
 function contador(a) {
     var total = 0;
-    for(var i=1; a >= i; i++) {
+    for(var i=1; i <= a; i++) {
     total++;
     }
     return total;
     }
+
 
 //FUNÇÃO FIBONACCI
 function fibonacci(num) {
@@ -17,6 +19,13 @@ function fibonacci(num) {
         return fibonacci(num - 1) + fibonacci(num - 2);
     }
 }
+
+/*
+
+for (var i =1; i<= num; i++) {
+    console.log(fibonacci(i));      // CHAMADA DA FUNÇÃO
+}
+
 
 
 // FUNÇÃO MDC
@@ -118,7 +127,7 @@ const quickSort = (arr, left, right) => {
 // FUNÇÃO SOMATÓRIO
 function somatorio(num) {
     var soma = 0;
-    for (var n of num) {
+    for (var n of numeros) {
         soma += n;
     }
 
@@ -126,12 +135,8 @@ function somatorio(num) {
 
 console.log(somatorio([1, 2, 3, 4, 5]));
 
-module.exports = {
-    somatorio
-};
-
-
+*/
 
 module.exports = {
-    contador, fibonacci, 
+    contador // fibonacci, mdc, primo, quickSort, somatorio
 };

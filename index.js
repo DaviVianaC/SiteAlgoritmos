@@ -20,15 +20,9 @@ app.get('/', function(req, res) {
     res.render('index', parametro);
 });
 
-/*
-app.get('/', function(req, res) {         // Configuração de uma url (Só para testar)
-    res.send('Algorítimos Fundamentais');
-});
-*/
 
 // 1-url Contador
 app.post('/contador', function(req, res) {
-
     var body = req.body;
     var a = parseFloat(body.a);
     var resultado = funcoes.contador(a);       // body.a é a variável enviada para a aplicação. 
@@ -52,5 +46,5 @@ app.post('/contador', function(req, res) {
 
 
 app.listen(port, function() {                                           // Indicação da porta.
-    console.log(`Servidor escutando na porta http://localhost:${port}/`);
+    console.log('Servidor escutando na porta http://localhost:3000/');
 });
