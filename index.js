@@ -26,10 +26,32 @@ app.post('/contador', function(req, res) {
     var body = req.body;
     var a = parseFloat(body.a);
     var resultado = funcoes.contador(a);       // body.a é a variável enviada para a aplicação. 
-    res.send(`O somatório dos números anteriores a ${a} é: ${resultado}`);  // Finalização da requisição;
+    const parametro = {
+        resultado: `O somatório dos números anteriores a ${a} é: ${resultado}`
+    };
+    res.render('contador', parametro);  // Finalização da requisição;
 });
 
+app.get('/contador', function(req, res) {
+    res.render('contador', {resultado: ""});
+});
+
+
 // 2-url Fibonacci
+app.post('/fibonacci', function(req, res) {
+    var body = req.body;
+    var a = parseInt(body.a);
+    var resultado = funcoes.fibonacci(a);       // body.a é a variável enviada para a aplicação. 
+    
+    const parametro = {
+        resultado: `O ${a}° termo da sequencia fibonacci é: ${resultado}`
+    };
+    res.render('fibonacci', parametro);  // Finalização da requisição;
+});
+
+app.get('/fibonacci', function(req, res) {
+    res.render('fibonacci', {resultado: ""});
+});
 
 
 // 3-url MDC

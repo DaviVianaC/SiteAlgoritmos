@@ -12,23 +12,19 @@ function contador(a) {
 
 //FUNÇÃO FIBONACCI
 function fibonacci(num) {
-    if (num == 1 || (num == 2)) {
-        return 1;
+    var a = 0;
+    var b = 1;
+    var aux;
+    for(i=0; i < num; i++){
+        aux = b
+        b = a+b;
+        a = aux;
     }
-    else {
-        return fibonacci(num - 1) + fibonacci(num - 2);
-    }
-}
-
-/*
-
-for (var i =1; i<= num; i++) {
-    console.log(fibonacci(i));      // CHAMADA DA FUNÇÃO
+    return a;
 }
 
 
-
-// FUNÇÃO MDC
+    //FUNÇÃO MDC
 function mdc(m,n) {
     var candidato = 0;
     m = parseInt(m);
@@ -133,10 +129,7 @@ function somatorio(num) {
 
 }
 
-console.log(somatorio([1, 2, 3, 4, 5]));
-
-*/
 
 module.exports = {
-    contador // fibonacci, mdc, primo, quickSort, somatorio
+    contador, fibonacci, mdc, primo, quickSort, somatorio
 };
