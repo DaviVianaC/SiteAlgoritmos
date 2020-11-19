@@ -1,6 +1,4 @@
-
 // FUNÇÃO CONTADOR
-// 
 function contador(a) {
     var total = 0;
     for(var i=1; i <= a; i++) {
@@ -24,29 +22,26 @@ function fibonacci(num) {
 }
 
 
-    //FUNÇÃO MDC
+//FUNÇÃO MDC
 function mdc(m,n) {
     var candidato = 0;
-    m = parseInt(m);
-    n = parseInt(n);
     
     candidato = Math.min(m, n);
     
     while (m % candidato != 0 || n % candidato != 0) {
-    candidato --;
+        candidato --;
     }
     
     return candidato;
-    }
+}
 
 // FUNÇÃO PRIMO
-function primo(num) {
-    for(var i = 2; i < num; i++) {
-        if (num % i == 0) {
-            return false;
-        }
-        return num !== 1;
-    }
+function primo(n){
+	if(n<2 || n.toString() == "NaN") return false;
+	for(let i=2; i <= Math.floor(Math.sqrt(n)); i++){
+		if(n % i === 0) return false;
+	}
+	return true;
 }
 
 // FUNÇÃO QUICKSORT
@@ -123,13 +118,13 @@ const quickSort = (arr, left, right) => {
 // FUNÇÃO SOMATÓRIO
 function somatorio(num) {
     var soma = 0;
-    for (var n of numeros) {
-        soma += n;
+    for(var i = 1; i <= num; i++) {
+        soma += i;
     }
-
+    return soma;
 }
 
 
 module.exports = {
-    contador, fibonacci, mdc, primo, quickSort, somatorio
+    contador, fibonacci, mdc, primo, quickSort, medianOfThree, somatorio
 };

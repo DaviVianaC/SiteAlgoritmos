@@ -15,7 +15,7 @@ app.set('views', path.join(__dirname, 'views')); // Caminho da pasta views.
 
 app.get('/', function(req, res) {
     const parametro = {
-        titulo: 'Algorítimos Fundamentais'      // O mesmo "titulo" do arquivo "index.ejs"
+        titulo: 'Algoritmos Fundamentais'      // O mesmo "titulo" do arquivo "index.ejs"
     };
     res.render('index', parametro);
 });
@@ -27,7 +27,7 @@ app.post('/contador', function(req, res) {
     var a = parseFloat(body.a);
     var resultado = funcoes.contador(a);       // body.a é a variável enviada para a aplicação. 
     const parametro = {
-        resultado: `O somatório dos números anteriores a ${a} é: ${resultado}`
+        resultado: `A contagem de 0 a ${a} é: ${resultado}`
     };
     res.render('contador', parametro);  // Finalização da requisição;
 });
@@ -55,16 +55,89 @@ app.get('/fibonacci', function(req, res) {
 
 
 // 3-url MDC
+app.post('/mdc', function(req, res) {
+    var body = req.body;
+    var a = parseInt(body.a);
+    var b = parseInt(body.b);
+    const parametro = {};
+
+    if(a.toString() == "NaN" || b.toString() == "NaN")
+        parametro.resultado = `O mdc de ${a} e ${b} é: ${undefined}`;
+    else if(a < 0 || b < 0)
+        parametro.resultado = "não é possivel realizar mdc de um numero negativo";
+    else
+        parametro.resultado = `O mdc de ${a} e ${b} é: ${funcoes.mdc(a, b)}`;
+
+    res.render('mdc', parametro);  // Finalização da requisição;
+});
+
+app.get('/mdc', function(req, res) {
+    res.render('mdc', {resultado: ""});
+});
 
 
 // 4-url Primo
+app.post('/primo', function(req, res) {
+    var body = req.body;
+    var a = parseInt(body.a);
+    var resultado = funcoes.primo(a);       // body.a é a variável enviada para a aplicação. 
+    const parametro = {};
+    if(resultado)
+        parametro.resultado = `${a} é primo`;
+    else
+        parametro.resultado = `${a} não é primo`;   
+    res.render('primo', parametro);  // Finalização da requisição;
+});
+
+app.get('/primo', function(req, res) {
+    res.render('primo', {resultado: ""});
+});
 
 
 // 5-url Quicksort
+app.post('/quicksort', function(req, res) {
+    var body = req.body;
+    var a = body.a.split(",");
+    var entradaInvalida = false;
+    const parametro = {};
+    for(i in a){                        //validando e ajustando entrada
+        a[i] = parseInt(a[i]);
+        if(a[i].toString() == "NaN"){
+            entradaInvalida = true;
+            break;
+        }
+    }
 
+    if(entradaInvalida){
+        parametro.resultado = "entrada Invalida";
+    }else{
+        var entrada = a.toString();
+        funcoes.medianOfThree(a); //ordena os indices 0, array.lengh-1 e parseInt(array.lengh/2) entre eles
+        funcoes.quickSort(a, 0, a.length-1);
+        parametro.resultado = `vetor original: ${entrada}\t vetor ordenado: ${a}`;
+    }
+    res.render('quicksort', parametro);  // Finalização da requisição;
+});
+
+app.get('/quicksort', function(req, res) {
+    res.render('quicksort', {resultado: ""});
+});
 
 // 6-url Somatorio
+app.post('/somatorio', function(req, res) {
+    var body = req.body;
+    var a = parseInt(body.a);
+    var resultado = funcoes.somatorio(a);       // body.a é a variável enviada para a aplicação. 
+    
+    const parametro = {
+        resultado: `O somatorio de ${a} é: ${resultado}`
+    };
+    res.render('somatorio', parametro);  // Finalização da requisição;
+});
 
+app.get('/somatorio', function(req, res) {
+    res.render('somatorio', {resultado: ""});
+});
 
 
 app.listen(port, function() {                                           // Indicação da porta.
