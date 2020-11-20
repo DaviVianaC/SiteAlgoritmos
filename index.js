@@ -27,7 +27,7 @@ app.post('/contador', function(req, res) {
     var a = parseFloat(body.a);
     var resultado = funcoes.contador(a);       // body.a é a variável enviada para a aplicação. 
     const parametro = {
-        resultado: `A contagem de 0 a ${a} é: ${resultado}`
+        resultado: `A contagem de uma unidade até ${a} é: ${resultado}`
     };
     res.render('contador', parametro);  // Finalização da requisição;
 });
@@ -114,7 +114,7 @@ app.post('/quicksort', function(req, res) {
         var entrada = a.toString();
         funcoes.medianOfThree(a); //ordena os indices 0, array.lengh-1 e parseInt(array.lengh/2) entre eles
         funcoes.quickSort(a, 0, a.length-1);
-        parametro.resultado = `vetor original: ${entrada}\t vetor ordenado: ${a}`;
+        parametro.resultado = `Vetor digitado: {${entrada}}\t. Vetor ordenado: {${a}}`;
     }
     res.render('quicksort', parametro);  // Finalização da requisição;
 });
@@ -130,7 +130,7 @@ app.post('/somatorio', function(req, res) {
     var resultado = funcoes.somatorio(a);       // body.a é a variável enviada para a aplicação. 
     
     const parametro = {
-        resultado: `O somatorio de ${a} é: ${resultado}`
+        resultado: `O somatorio dos números que antecedem ${a} e incluindo ele, é: ${resultado}`
     };
     res.render('somatorio', parametro);  // Finalização da requisição;
 });
