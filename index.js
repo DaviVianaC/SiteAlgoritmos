@@ -15,7 +15,8 @@ app.set('views', path.join(__dirname, 'views')); // Caminho da pasta views.
 
 app.get('/', function(req, res) {
     const parametro = {
-        titulo: 'Algoritmos Fundamentais'      // O mesmo "titulo" do arquivo "index.ejs"
+        titulo: 'Algoritmos Fundamentais',      // O mesmo "titulo" do arquivo "index.ejs"
+        integrantes: 'Anderson Marques | Davi Viana | Germano Macieira'
     };
     res.render('index', parametro);
 });
@@ -27,7 +28,7 @@ app.post('/contador', function(req, res) {
     var a = parseFloat(body.a);
     var resultado = funcoes.contador(a);       // body.a é a variável enviada para a aplicação. 
     const parametro = {
-        resultado: `A contagem de uma unidade até ${a} é: ${resultado}`
+        resultado: `A contagem de 1 até ${a} é: ${resultado}`
     };
     res.render('contador', parametro);  // Finalização da requisição;
 });
@@ -83,9 +84,9 @@ app.post('/primo', function(req, res) {
     var resultado = funcoes.primo(a);       // body.a é a variável enviada para a aplicação. 
     const parametro = {};
     if(resultado)
-        parametro.resultado = `${a} é primo`;
+        parametro.resultado = `${a} é primo!`;
     else
-        parametro.resultado = `${a} não é primo`;   
+        parametro.resultado = `${a} não é primo!`;   
     res.render('primo', parametro);  // Finalização da requisição;
 });
 
@@ -109,18 +110,18 @@ app.post('/quicksort', function(req, res) {
     }
 
     if(entradaInvalida){
-        parametro.resultado = "entrada Invalida";
+        parametro.resultado = "Entrada Invalida";
     }else{
         var entrada = a.toString();
         funcoes.medianOfThree(a); //ordena os indices 0, array.lengh-1 e parseInt(array.lengh/2) entre eles
         funcoes.quickSort(a, 0, a.length-1);
-        parametro.resultado = `Vetor digitado: {${entrada}}\t. Vetor ordenado: {${a}}`;
+        parametro.resultado = `Valores digitados: ${entrada}\t. Sequência ordenada: ${a}`;
     }
-    res.render('quicksort', parametro);  // Finalização da requisição;
+    res.render('quickSort', parametro);  // Finalização da requisição;
 });
 
 app.get('/quicksort', function(req, res) {
-    res.render('quicksort', {resultado: ""});
+    res.render('quickSort', {resultado: ""});
 });
 
 // 6-url Somatorio
@@ -130,7 +131,7 @@ app.post('/somatorio', function(req, res) {
     var resultado = funcoes.somatorio(a);       // body.a é a variável enviada para a aplicação. 
     
     const parametro = {
-        resultado: `O somatorio dos números que antecedem ${a} e incluindo ele, é: ${resultado}`
+        resultado: `Número digitado: ${a}. Valor do somatorio: ${resultado}`
     };
     res.render('somatorio', parametro);  // Finalização da requisição;
 });
