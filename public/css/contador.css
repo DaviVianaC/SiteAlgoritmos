@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
 body{
-    background-image: url("/public/imagens/1_contador.png");
+    background-image: url("../imagens/1_contador.png");
     
 }
