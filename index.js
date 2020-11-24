@@ -26,7 +26,7 @@ app.get('/', function(req, res) {
 app.post('/contador', function(req, res) {
     var body = req.body;
     var a = parseFloat(body.a);
-    var resultado = funcoes.contador(a);       // body.a é a variável enviada para a aplicação. 
+    var resultado = funcoes.contador(a);       // body.a é a variável enviada para a aplicação 
     const parametro = {
         resultado: `A contagem de 1 até ${a} é: ${resultado}`
     };
