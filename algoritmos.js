@@ -44,7 +44,7 @@ function primo(n){
 	return true;
 }
 
-// FUNÇÃO QUICKSORT
+// FUNÇÃO QUICKSORT Digite de forma aleatória e separando com vírgulas, uma sequência de números:
 const medianOfThree = (arr) => {
     // olhando apenas para o primeiro indice, ultimo indice, e o indice do centro do vetor
     // esta funcao ordena esses indices apenas entre eles
@@ -115,7 +115,7 @@ const quickSort = (arr, left, right) => {
     quickSort(arr, pivot+1, initialRight);
 }
 
-// FUNÇÃO SOMATÓRIO
+// FUNÇÃO SOMATÓRIO Digite um número! Será somado a ele todos os seus antecessores.
 function somatorio(num) {
     var soma = 0;
     for(var i = 1; i <= num; i++) {
