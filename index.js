@@ -1,6 +1,6 @@
 var express = require('express');           // Importamos o Express para a nossa aplicação poder utilizar;
 var bodyParser = require('body-parser');    // Referência para a requisição da biblioteca(módulo) do Body-parser;
-var funcoes = require('./algoritmos');
+var funcoes = require('./algoritmos');      // Utilizamos essa variável para se referir ao diretório onde estão as funções.
 var app = express();                        // Instanciamos uma aplicação Express. A partir de agora podemos utilizar os comandos que o Express nos fornece;
 var path = require('path');                 // Pacote embutido no node. Trabalha com os caminho do SO. Concatena caminhos.
 
