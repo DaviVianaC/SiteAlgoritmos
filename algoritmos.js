@@ -2,10 +2,10 @@
 function contador(a) {
     var total = 0;
     for(var i=1; i <= a; i++) {
-    total++;
+        total++;
     }
     return total;
-    }
+}
 
 
 //FUNÇÃO FIBONACCI
@@ -37,14 +37,15 @@ function mdc(m,n) {
 
 // FUNÇÃO PRIMO
 function primo(n){
-	if(n<2 || n.toString() == "NaN") return false;
+    if(n<2 || n.toString() == "NaN") return false;
+    
 	for(let i=2; i <= Math.floor(Math.sqrt(n)); i++){
 		if(n % i === 0) return false;
 	}
 	return true;
 }
 
-// FUNÇÃO QUICKSORT Digite de forma aleatória e separando com vírgulas, uma sequência de números:
+// função para auxiliar na escolha do pivot para o quicksort
 const medianOfThree = (arr) => {
     // olhando apenas para o primeiro indice, ultimo indice, e o indice do centro do vetor
     // esta funcao ordena esses indices apenas entre eles
@@ -66,10 +67,12 @@ const medianOfThree = (arr) => {
     }
 }
 
+// FUNÇÃO QUICKSORT Digite de forma aleatória e separando com vírgulas, uma sequência de números:
 const quickSort = (arr, left, right) => {
     // caso o vetor tenha tamanho menor que 2 a funcao para aqui
     if(right - left < 1) return;
-    
+
+    // salvando posição inicial dos ponteiros para uso mais tarde
     var initialRight = right;
     var initialLeft = left;
 
