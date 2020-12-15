@@ -15,6 +15,6 @@
 
     // Teste 03: com número decimal
     test('Contar 1 até 3 é igual a 3.6', () => {
-        const cont = algoritmo.contador(3);
+        const cont = algoritmo.contador(3.6);
         expect(cont).toBe(3);
     });

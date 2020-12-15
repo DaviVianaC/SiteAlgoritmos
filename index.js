@@ -4,7 +4,7 @@ var funcoes = require('./algoritmos');      // Utilizamos essa variável para se
 var app = express();                        // Instanciamos uma aplicação Express. A partir de agora podemos utilizar os comandos que o Express nos fornece;
 var path = require('path');                 // Pacote embutido no node. Trabalha com os caminho do SO. Concatena caminhos.
 
-var port = 3000;
+var port = process.env.port ? process.env.port : 3002;
 app.use(bodyParser.json());            // Está recebendo os dados como json. O bodyParser intercepta as requisições. Essa biblioteca ajudará na leitura dos dados que vamos enviar via POST.
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -140,7 +140,9 @@ app.get('/somatorio', function(req, res) {
     res.render('somatorio', {resultado: ""});
 });
 
+// app.listen(process.env.port || 3000);
 
 app.listen(port, function() {                                           // Indicação da porta.
     console.log(`Servidor escutando na porta http://localhost:${port}/`);
 });
+
